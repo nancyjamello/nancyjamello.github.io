@@ -6,10 +6,10 @@ import "@fontsource/caveat";
 
 const About = () => {
   return (
-    <Box as="main" w="100%" h="calc(100vh)" overflowX="scroll">
+    <Box as="main" w="100%">
       <Box
         w="100vw"
-        h="100%"
+        h="calc(100vh - 50px)"
         bgImage={`url(https://images.squarespace-cdn.com/content/v1/5966811bf5e231568774f4c2/1500159781937-7S35ZUKYBN7IIXK5J6SM/Stocksy_txpdbbfa43erqZ100_Medium_599859.jpg?format=2500w)`}
         bgSize="cover"
         bgPosition="center"
@@ -50,7 +50,7 @@ const About = () => {
 
       <Box
         w="100vw"
-        h="100%"
+        h="calc(100vh - 50px)"
         bgSize="cover"
         bgPosition="center"
         bgColor="rgba(61,104,112,.6)"
