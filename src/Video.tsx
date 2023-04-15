@@ -21,7 +21,7 @@ const Video = () => {
   const [error, setError] = useState<string>("");
 
   // Use a state variable to store the url value
-  const [url, setUrl] = useState<string>("http://");
+  const [url, setUrl] = useState<string>("invalid password");
 
   // Use a useEffect hook to validate the url and set the error message
   useEffect(() => {
