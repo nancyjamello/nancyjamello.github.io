@@ -44,7 +44,7 @@ const App = () => {
             Videos
           </Link>
         </Box>
-        <Box pt="50px">
+        <Box pt="50px" height="calc(100vh - 50px)">
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<About />} />

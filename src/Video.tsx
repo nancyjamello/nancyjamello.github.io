@@ -43,20 +43,16 @@ const Video = () => {
 
   return (
     <Box
-      as="main"
-      w="calc(100vw)"
-      h="calc(100vh)"
-      display="flex"
-      flexDirection="column"
       alignItems="center"
+      height="full"
     >
       {error ? (
         <Text color="red">{error}</Text> // display the error text if present
       ) : (
         <iframe
           src={url}
-          width="calc(100vw)"
-          height="calc(100vh)"
+          width="100%"
+          height="full"
           allow="autoplay"
         ></iframe>
       )}

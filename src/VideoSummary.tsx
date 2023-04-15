@@ -17,14 +17,12 @@ interface VideoSummaryProps {
 
 const VideoSummary = (props: VideoSummaryProps) => {
   return (
-    <Box>
+    <Box alignItems="center" justifyContent="center" w="95%">
       <Card
         direction={{ base: "column", sm: "row" }}
-        maxW="95%"
+        maxW="100%"
         overflow="hidden"
         variant="outline"
-        alignItems="center"
-        justifyContent="center"
         paddingX="5%"
         background="white"
       >
