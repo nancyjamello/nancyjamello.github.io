@@ -8,7 +8,7 @@ A single-page website for Nancy Jamello's yoga practice, built with React 18, Ch
 
 ## Tech Stack
 
-- **React 18** + TypeScript (Create React App)
+- **React 18** + TypeScript (Vite)
 - **Chakra UI v3** — component library and styling
 - **Playwright** — end-to-end testing
 - **GitHub Actions** — CI/CD to GitHub Pages
@@ -22,10 +22,10 @@ git clone git@github.com:nancyjamello/site.git
 cd site
 
 # Install (Node 20+ required)
-npm install --legacy-peer-deps
+npm install
 
 # Run locally
-npm start
+npm run dev
 # Opens http://localhost:3000
 
 # Build for production
@@ -83,11 +83,11 @@ The site uses **Livory**, a serif typeface by HVD Fonts. The font files in `publ
 
 ## Deployment
 
-Pushing to `main` triggers automatic deployment to GitHub Pages via the workflow in `.github/workflows/deploy.yml`. The build uses `PUBLIC_URL=/site` since the site is served from `nancyjamello.github.io/site/`.
+Pushing to `main` triggers automatic deployment to GitHub Pages via the workflow in `.github/workflows/deploy.yml`. The Vite config sets `base: "/site/"` for production builds since the site is served from `nancyjamello.github.io/site/`.
 
 ### Manual deploy
 ```bash
-PUBLIC_URL=/site npm run build
+npm run build
 # The `build/` folder contains the deployable static site
 ```
 
@@ -122,6 +122,4 @@ Replace files in `public/images/`. Image filenames are referenced in `src/App.ts
 
 ## Known Limitations
 
-- `react-scripts` 5.0.1 is end-of-life (CRA is deprecated). A migration to Vite is recommended for long-term maintenance.
-- The `--legacy-peer-deps` flag is required due to Chakra UI v3 peer dependency conflicts with CRA's bundled packages.
 - YouTube video fetching depends on third-party CORS proxies.

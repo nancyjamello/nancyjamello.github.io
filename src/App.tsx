@@ -37,7 +37,7 @@ const NAV_ITEMS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const IMG = (name: string) => `${process.env.PUBLIC_URL}/images/${name}`;
+const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);

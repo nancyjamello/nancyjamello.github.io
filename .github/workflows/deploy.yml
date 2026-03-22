@@ -23,13 +23,9 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm install --legacy-peer-deps
+      - run: npm install
 
       - run: npm run build
-        env:
-          PUBLIC_URL: /site
-          CI: false
-          NODE_OPTIONS: --openssl-legacy-provider
 
       - uses: actions/upload-pages-artifact@v3
         with:

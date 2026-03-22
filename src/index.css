@@ -4,28 +4,28 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../public/fonts/hvdtrial-livory-regular.woff2') format('woff2');
+  src: url('/fonts/hvdtrial-livory-regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Livory';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('../public/fonts/hvdtrial-livory-regularitalic.woff2') format('woff2');
+  src: url('/fonts/hvdtrial-livory-regularitalic.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Livory';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../public/fonts/hvdtrial-livory-bold.woff2') format('woff2');
+  src: url('/fonts/hvdtrial-livory-bold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Livory';
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('../public/fonts/hvdtrial-livory-bolditalic.woff2') format('woff2');
+  src: url('/fonts/hvdtrial-livory-bolditalic.woff2') format('woff2');
 }
 
 html {
