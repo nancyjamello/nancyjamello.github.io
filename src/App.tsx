@@ -417,7 +417,9 @@ const App = () => {
             lineHeight="1.8"
             mb="24px"
           >
-            <em>Contact me for more information and to order yoga DVDs.</em>
+            <em>
+              Contact me <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link> for more information.
+            </em>
           </Text>
         </Box>
       </Box>

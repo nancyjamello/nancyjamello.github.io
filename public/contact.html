@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Nancy</title>
+    <style>
+      :root {
+        --blue: #94a7ab;
+        --wine: rgb(192, 85, 118);
+        --text: #2d2d2d;
+        --muted: #6b6560;
+        --border: #e8e4df;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--text);
+        background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)), url("./images/hero-meditation.jpg") center/cover no-repeat fixed;
+      }
+
+      .wrap {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 760px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        color: var(--wine);
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0 0 22px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+
+      input, textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        font: inherit;
+        background: white;
+      }
+
+      textarea {
+        min-height: 180px;
+        resize: vertical;
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        background: var(--wine);
+        color: white;
+        border-radius: 10px;
+        padding: 14px 20px;
+        font: inherit;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      button:hover { opacity: 0.92; }
+
+      .note {
+        margin-top: 14px;
+        font-size: 0.92rem;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--wine);
+        text-decoration: none;
+      }
+
+      @media (max-width: 640px) {
+        .card { padding: 22px; }
+        .row { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <a class="back" href="./">&larr; Back to website</a>
+        <h1>Contact Nancy</h1>
+        <p>Fill out the form below and your email app will open a message addressed to Nancy with everything formatted and ready to send.</p>
+
+        <form id="contactForm">
+          <div class="row">
+            <div>
+              <label for="firstName">First name</label>
+              <input id="firstName" name="firstName" type="text" required />
+            </div>
+            <div>
+              <label for="lastName">Last name</label>
+              <input id="lastName" name="lastName" type="text" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit">Send</button>
+        </form>
+
+        <p class="note">If your email app does not open automatically, please email Nancy directly at nancyjamello@gmail.com.</p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const subject = encodeURIComponent('Website contact from ' + firstName + ' ' + lastName);
+        const body = encodeURIComponent(
+          'First name: ' + firstName + '\n' +
+          'Last name: ' + lastName + '\n' +
+          'Email: ' + email + '\n\n' +
+          'Message:\n' + message
+        );
+
+        window.location.href = 'mailto:nancyjamello@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    </script>
+  </body>
+</html>
