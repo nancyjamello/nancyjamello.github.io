@@ -279,8 +279,9 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* ─── Videos duplicate ─── */}
+      {/* ─── Video libraries ─── */}
       <Box
+        id="videos"
         py={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
         position="relative"
@@ -296,22 +297,7 @@ const App = () => {
             requirePassword={false}
             actionLabel="Open"
           />
-        </Box>
-      </Box>
-
-      {/* ─── Videos ─── */}
-      <Box
-        id="videos"
-        py={{ base: "60px", md: "100px" }}
-        px={{ base: "20px", md: "40px" }}
-        position="relative"
-        style={{
-          backgroundImage: `url(${IMG("hero-meditation.jpg")})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-        }}
-      >
-        <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
+          <Box h={{ base: "40px", md: "56px" }} />
           <VideoSection />
         </Box>
       </Box>
