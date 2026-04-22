@@ -279,27 +279,27 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* ─── Photo separator: original hero image ─── */}
-      <Box>
-        <img
-          src={IMG("hero-meditation.jpg")}
-          alt="Nancy outdoors meditating"
-          style={{
-            width: "100%",
-            height: "auto",
-            display: "block",
-          }}
-        />
-      </Box>
-
       {/* ─── Videos ─── */}
       <Box
         id="videos"
         py={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
-        bg="white"
+        position="relative"
+        style={{
+          backgroundImage: `url(${IMG("hero-meditation.jpg")})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+        }}
       >
-        <Box maxW="1200px" mx="auto">
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          w="100%"
+          h="100%"
+          bg="rgba(255,255,255,0.88)"
+        />
+        <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
           <VideoSection />
         </Box>
       </Box>
