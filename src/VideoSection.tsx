@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Button, Input, Text, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { Box, Button, Input, Text, Heading, SimpleGrid, Spinner, Link } from "@chakra-ui/react";
 
 // SHA-256 hash of the password.
 // To generate: open browser console and run  sha256("yourpassword")  then paste the result here.
@@ -32,11 +32,17 @@ interface YouTubeVideo {
   thumbnail: string;
 }
 
+interface PlaylistLink {
+  title: string;
+  url: string;
+}
+
 interface VideoSectionProps {
   title?: string;
   requirePassword?: boolean;
   actionLabel?: string;
   prioritizedTitles?: string[];
+  playlists?: PlaylistLink[];
 }
 
 function sortVideos(videos: YouTubeVideo[], prioritizedTitles: string[]): YouTubeVideo[] {
@@ -86,6 +92,7 @@ const VideoSection = ({
   requirePassword = true,
   actionLabel = "Unlock",
   prioritizedTitles = [],
+  playlists = [],
 }: VideoSectionProps) => {
   // gate state
   const [unlocked, setUnlocked] = useState(false);
@@ -361,14 +368,65 @@ const VideoSection = ({
       {/* ── Video grid (only rendered after unlock) ── */}
       {unlocked && (
         <Box className="fade-in">
+          {playlists.length > 0 && (
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap="20px" mb={videos.length > 0 ? "20px" : "0"}>
+              {playlists.map((playlist) => (
+                <Link
+                  key={playlist.url}
+                  href={playlist.url}
+                  isExternal
+                  textDecoration="none"
+                  _hover={{ textDecoration: "none" }}
+                >
+                  <Box
+                    bg="white"
+                    borderRadius="md"
+                    border="1px solid #e8e4df"
+                    overflow="hidden"
+                    transition="transform 0.2s, box-shadow 0.2s"
+                    _hover={{
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                    }}
+                  >
+                    <Box
+                      bg="linear-gradient(135deg, #94a7ab 0%, rgb(192, 85, 118) 100%)"
+                      color="white"
+                      minH="180px"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      textAlign="center"
+                      px="20px"
+                    >
+                      <Text fontSize="lg" fontWeight="500" lineHeight="1.4">
+                        {playlist.title}
+                      </Text>
+                    </Box>
+                    <Box p="12px">
+                      <Text fontWeight="500" color="#2d2d2d" fontSize="sm">
+                        {playlist.title}
+                      </Text>
+                      <Text color="#aaa" fontSize="xs" mt="4px">
+                        Open YouTube playlist
+                      </Text>
+                    </Box>
+                  </Box>
+                </Link>
+              ))}
+            </SimpleGrid>
+          )}
+
           {loading ? (
             <Box display="flex" justifyContent="center" py="60px">
               <Spinner size="lg" color="#2d2d2d" />
             </Box>
           ) : videos.length === 0 ? (
-            <Text color="#6b6560" textAlign="center" py="60px">
-              No videos found.
-            </Text>
+            playlists.length === 0 ? (
+              <Text color="#6b6560" textAlign="center" py="60px">
+                No videos found.
+              </Text>
+            ) : null
           ) : (
             <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap="20px">
               {videos.map((video) => (
