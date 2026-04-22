@@ -382,7 +382,15 @@ const VideoSection = ({
       {unlocked && (
         <Box className="fade-in">
           {playlists.length > 0 && (
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap="20px" mb={videos.length > 0 ? "20px" : "0"}>
+            <SimpleGrid
+              columns={{
+                base: 1,
+                sm: playlists.length === 1 ? 1 : 2,
+                md: playlists.length <= 2 ? playlists.length : 3,
+              }}
+              gap="20px"
+              mb={videos.length > 0 ? "20px" : "0"}
+            >
               {playlists.map((playlist) => (
                 <Link
                   key={playlist.url}
