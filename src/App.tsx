@@ -293,6 +293,8 @@ const App = () => {
       >
         <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
           <VideoSection
+            requirePassword={false}
+            actionLabel="Open"
             playlists={[
               {
                 title: "Yoga With Nancy Jamello",
