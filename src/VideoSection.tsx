@@ -227,7 +227,16 @@ const VideoSection = () => {
 
       {/* ── Password gate ── */}
       {!unlocked && (
-        <Box maxW="400px" mx="auto" textAlign="center">
+        <Box
+          maxW="460px"
+          mx="auto"
+          textAlign="center"
+          px={{ base: "20px", md: "28px" }}
+          py={{ base: "20px", md: "24px" }}
+          bg="rgba(255,255,255,0.58)"
+          borderRadius="lg"
+          backdropFilter="blur(6px)"
+        >
           <Box className={shaking ? "shake" : undefined} mb="16px">
             <Box position="relative">
               <Input
@@ -252,6 +261,7 @@ const VideoSection = () => {
                   border: "1px solid #e8e4df",
                   paddingLeft: "16px",
                   fontFamily: "inherit",
+                  backgroundColor: "rgba(255,255,255,0.9)",
                 }}
               />
               <Box
