@@ -44,6 +44,7 @@ interface VideoSectionProps {
   prioritizedTitles?: string[];
   playlists?: PlaylistLink[];
   excludedTitleKeywords?: string[];
+  videoFeedUrls?: string[];
 }
 
 function filterVideos(videos: YouTubeVideo[], excludedTitleKeywords: string[]): YouTubeVideo[] {
@@ -76,6 +77,20 @@ function sortVideos(videos: YouTubeVideo[], prioritizedTitles: string[]): YouTub
   });
 }
 
+function dedupeAndSortByDate(videos: YouTubeVideo[]): YouTubeVideo[] {
+  const seen = new Map<string, YouTubeVideo>();
+
+  videos.forEach((video) => {
+    if (!seen.has(video.videoId)) {
+      seen.set(video.videoId, video);
+    }
+  });
+
+  return [...seen.values()].sort(
+    (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime()
+  );
+}
+
 function parseRss(xml: string): YouTubeVideo[] {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xml, "text/xml");
@@ -105,6 +120,7 @@ const VideoSection = ({
   prioritizedTitles = [],
   playlists = [],
   excludedTitleKeywords = [],
+  videoFeedUrls = [RSS_URL],
 }: VideoSectionProps) => {
   // gate state
   const [unlocked, setUnlocked] = useState(false);
@@ -134,22 +150,33 @@ const VideoSection = ({
 
   const fetchVideos = async () => {
     setLoading(true);
-    for (const proxy of CORS_PROXIES) {
-      try {
-        const res = await fetch(proxy(RSS_URL));
-        if (res.ok) {
-          const xml = await res.text();
-          const parsed = parseRss(xml);
-          if (parsed.length > 0) {
-            const filtered = filterVideos(parsed, excludedTitleKeywords);
-            setVideos(sortVideos(filtered, prioritizedTitles));
-            break;
+
+    let allVideos: YouTubeVideo[] = [];
+
+    for (const feedUrl of videoFeedUrls) {
+      let feedVideos: YouTubeVideo[] = [];
+
+      for (const proxy of CORS_PROXIES) {
+        try {
+          const res = await fetch(proxy(feedUrl));
+          if (res.ok) {
+            const xml = await res.text();
+            const parsed = parseRss(xml);
+            if (parsed.length > 0) {
+              feedVideos = parsed;
+              break;
+            }
           }
+        } catch {
+          /* try next proxy */
         }
-      } catch {
-        /* try next proxy */
       }
+
+      allVideos = [...allVideos, ...feedVideos];
     }
+
+    const filtered = filterVideos(dedupeAndSortByDate(allVideos), excludedTitleKeywords);
+    setVideos(sortVideos(filtered, prioritizedTitles));
     setLoading(false);
   };
 

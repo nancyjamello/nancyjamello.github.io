@@ -293,15 +293,9 @@ const App = () => {
       >
         <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
           <VideoSection
-            playlists={[
-              {
-                title: "Yoga With Nancy Jamello",
-                url: "https://youtube.com/playlist?list=PLdY4OxKzOvajmsppAZqyWH_jAm2yM9pun&si=GKU9kzcp6YcYZ78g",
-              },
-              {
-                title: "Breathing Exercises and Meditation With Nancy",
-                url: "https://youtube.com/playlist?list=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl&si=z4zZjbmHPGtOBBP3",
-              },
+            videoFeedUrls={[
+              "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdY4OxKzOvajmsppAZqyWH_jAm2yM9pun",
+              "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl",
             ]}
             excludedTitleKeywords={["ruth barati"]}
           />
