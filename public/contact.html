@@ -11,6 +11,8 @@
         --text: #2d2d2d;
         --muted: #6b6560;
         --border: #e8e4df;
+        --success: #3f7d4e;
+        --error: #b33a3a;
       }
 
       * { box-sizing: border-box; }
@@ -97,11 +99,21 @@
       }
 
       button:hover { opacity: 0.92; }
+      button:disabled { opacity: 0.65; cursor: wait; }
 
       .note {
         margin-top: 14px;
         font-size: 0.92rem;
       }
+
+      .status {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        min-height: 1.4em;
+      }
+
+      .status.success { color: var(--success); }
+      .status.error { color: var(--error); }
 
       .back {
         display: inline-block;
@@ -121,17 +133,21 @@
       <div class="card">
         <a class="back" href="./">&larr; Back to website</a>
         <h1>Contact Nancy</h1>
-        <p>Fill out the form below and your email app will open a message addressed to Nancy with everything formatted and ready to send.</p>
+        <p>Fill out the form below and send your message directly from this page.</p>
 
         <form id="contactForm">
+          <input type="hidden" name="access_key" value="b8be152e-0fa4-411b-a5bf-6fdc5de731f4" />
+          <input type="hidden" name="subject" value="New website contact for Nancy" />
+          <input type="hidden" name="from_name" value="nancyjamello.com" />
+
           <div class="row">
             <div>
               <label for="firstName">First name</label>
-              <input id="firstName" name="firstName" type="text" required />
+              <input id="firstName" name="first_name" type="text" required />
             </div>
             <div>
               <label for="lastName">Last name</label>
-              <input id="lastName" name="lastName" type="text" required />
+              <input id="lastName" name="last_name" type="text" required />
             </div>
           </div>
 
@@ -145,31 +161,49 @@
             <textarea id="message" name="message" required></textarea>
           </div>
 
-          <button type="submit">Send</button>
+          <button id="submitButton" type="submit">Send</button>
+          <div id="status" class="status" aria-live="polite"></div>
         </form>
 
-        <p class="note">If your email app does not open automatically, please email Nancy directly at nancyjamello@gmail.com.</p>
+        <p class="note">Messages sent here will be delivered to Nancy at nancyjamello@gmail.com.</p>
       </div>
     </div>
 
     <script>
-      document.getElementById('contactForm').addEventListener('submit', function (event) {
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('status');
+      const submitButton = document.getElementById('submitButton');
+
+      form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+        status.textContent = 'Sending...';
+        status.className = 'status';
+        submitButton.disabled = true;
 
-        const subject = encodeURIComponent('Website contact from ' + firstName + ' ' + lastName);
-        const body = encodeURIComponent(
-          'First name: ' + firstName + '\n' +
-          'Last name: ' + lastName + '\n' +
-          'Email: ' + email + '\n\n' +
-          'Message:\n' + message
-        );
+        try {
+          const formData = new FormData(form);
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+          });
 
-        window.location.href = 'mailto:nancyjamello@gmail.com?subject=' + subject + '&body=' + body;
+          const result = await response.json();
+
+          if (result.success) {
+            status.textContent = 'Your message was sent successfully.';
+            status.className = 'status success';
+            form.reset();
+          } else {
+            status.textContent = 'Sorry, something went wrong. Please try again.';
+            status.className = 'status error';
+          }
+        } catch (error) {
+          status.textContent = 'Sorry, something went wrong. Please try again.';
+          status.className = 'status error';
+        } finally {
+          submitButton.disabled = false;
+        }
       });
     </script>
   </body>
