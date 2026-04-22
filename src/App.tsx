@@ -171,7 +171,7 @@ const App = () => {
         </Box>
       </header>
 
-      {/* ─── Hero: flower field background ─── */}
+      {/* ─── Hero: three-photo background ─── */}
       <Box
         position="relative"
         minH={{ base: "70vh", md: "90vh" }}
@@ -180,12 +180,28 @@ const App = () => {
         justifyContent="center"
         textAlign="center"
         px="20px"
-        style={{
-          backgroundImage: `url(${IMG("hero-meditation.jpg")})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center 60%",
-        }}
+        overflow="hidden"
       >
+        <Flex position="absolute" top="0" left="0" w="100%" h="100%">
+          {[
+            { src: "yoga-class-1.jpg", alt: "Yoga class - triangle pose", ratio: 1.4863 },
+            { src: "nancy-portrait.jpg", alt: "Nancy with students - tree pose", ratio: 1.0 },
+            { src: "yoga-class-2.jpg", alt: "Yoga class - warrior II pose", ratio: 1.4611 },
+          ].map((img) => (
+            <Box key={img.src} flex={`${img.ratio}`} minW="0" h="100%">
+              <img
+                src={IMG(img.src)}
+                alt={img.alt}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+            </Box>
+          ))}
+        </Flex>
         <Box
           position="absolute"
           top="0"
@@ -263,26 +279,18 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* ─── Photo separator: single row, ratio-matched, no crop ─── */}
-      <Flex>
-        {[
-          { src: "yoga-class-1.jpg", alt: "Yoga class - triangle pose", ratio: 1.4863 },
-          { src: "nancy-portrait.jpg", alt: "Nancy with students - tree pose", ratio: 1.0 },
-          { src: "yoga-class-2.jpg", alt: "Yoga class - warrior II pose", ratio: 1.4611 },
-        ].map((img) => (
-          <Box key={img.src} flex={`${img.ratio}`} minW="0">
-            <img
-              src={IMG(img.src)}
-              alt={img.alt}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-              }}
-            />
-          </Box>
-        ))}
-      </Flex>
+      {/* ─── Photo separator: original hero image ─── */}
+      <Box>
+        <img
+          src={IMG("hero-meditation.jpg")}
+          alt="Nancy outdoors meditating"
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+          }}
+        />
+      </Box>
 
       {/* ─── Videos ─── */}
       <Box
