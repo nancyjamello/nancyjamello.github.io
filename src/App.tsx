@@ -31,10 +31,10 @@ const DVDS = [
 ];
 
 const NAV_ITEMS = [
-  { label: "About", href: "#about" },
-  { label: "Videos", href: "#videos" },
-  { label: "DVDs", href: "#dvds" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Nancy", href: "#about" },
+  { label: "Video Library", href: "#videos" },
+  { label: "Published Works", href: "#dvds" },
+  { label: "Contact Nancy", href: "#contact" },
 ];
 
 const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
