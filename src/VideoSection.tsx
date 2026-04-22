@@ -281,7 +281,7 @@ const VideoSection = ({
             ? "Click any playlist below to view the associated videos on YouTube."
             : requirePassword
               ? "Enter your password to access the video collection."
-              : "Click Open to view videos playlists."}
+              : "Click Open to view video playlists."}
         </Text>
       </Box>
 
