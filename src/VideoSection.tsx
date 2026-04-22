@@ -32,6 +32,12 @@ interface YouTubeVideo {
   thumbnail: string;
 }
 
+interface VideoSectionProps {
+  title?: string;
+  requirePassword?: boolean;
+  actionLabel?: string;
+}
+
 function parseRss(xml: string): YouTubeVideo[] {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xml, "text/xml");
@@ -54,7 +60,11 @@ function parseRss(xml: string): YouTubeVideo[] {
   return videos;
 }
 
-const VideoSection = () => {
+const VideoSection = ({
+  title = "Video Library",
+  requirePassword = true,
+  actionLabel = "Unlock",
+}: VideoSectionProps) => {
   // gate state
   const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
@@ -102,6 +112,12 @@ const VideoSection = () => {
   };
 
   const handleSubmit = async () => {
+    if (!requirePassword) {
+      setUnlocked(true);
+      fetchVideos();
+      return;
+    }
+
     if (locked || !password.trim()) return;
     const hash = await sha256(password);
 
@@ -211,7 +227,7 @@ const VideoSection = () => {
           mb="8px"
           textAlign="center"
         >
-          Video Library
+          {title}
         </Heading>
         <Text
           fontSize="sm"
@@ -221,7 +237,9 @@ const VideoSection = () => {
         >
           {unlocked
             ? "Click any video to watch. Use the fullscreen button for native fullscreen."
-            : "Enter your password to access the video collection."}
+            : requirePassword
+              ? "Enter your password to access the video collection."
+              : "Click Open to access the video collection."}
         </Text>
       </Box>
 
@@ -237,60 +255,62 @@ const VideoSection = () => {
           borderRadius="lg"
           backdropFilter="blur(6px)"
         >
-          <Box className={shaking ? "shake" : undefined} mb="16px">
-            <Box position="relative">
-              <Input
-                ref={inputRef}
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                value={password}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setPassword(e.target.value)
-                }
-                onKeyDown={(e: React.KeyboardEvent) => {
-                  if (e.key === "Enter") handleSubmit();
-                }}
-                disabled={locked}
-                style={{
-                  paddingRight: "70px",
-                  height: "48px",
-                  fontSize: "16px",
-                  borderColor: "#e8e4df",
-                  borderRadius: "6px",
-                  width: "100%",
-                  border: "1px solid #e8e4df",
-                  paddingLeft: "16px",
-                  fontFamily: "inherit",
-                  backgroundColor: "rgba(255,255,255,0.9)",
-                }}
-              />
-              <Box
-                position="absolute"
-                right="8px"
-                top="50%"
-                transform="translateY(-50%)"
-                zIndex="1"
-              >
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => setShowPassword(!showPassword)}
+          {requirePassword && (
+            <Box className={shaking ? "shake" : undefined} mb="16px">
+              <Box position="relative">
+                <Input
+                  ref={inputRef}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
+                  onKeyDown={(e: React.KeyboardEvent) => {
+                    if (e.key === "Enter") handleSubmit();
+                  }}
                   disabled={locked}
                   style={{
-                    fontSize: "12px",
-                    color: "#6b6560",
+                    paddingRight: "70px",
+                    height: "48px",
+                    fontSize: "16px",
+                    borderColor: "#e8e4df",
+                    borderRadius: "6px",
+                    width: "100%",
+                    border: "1px solid #e8e4df",
+                    paddingLeft: "16px",
                     fontFamily: "inherit",
+                    backgroundColor: "rgba(255,255,255,0.9)",
                   }}
+                />
+                <Box
+                  position="absolute"
+                  right="8px"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  zIndex="1"
                 >
-                  {showPassword ? "Hide" : "Show"}
-                </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setShowPassword(!showPassword)}
+                    disabled={locked}
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b6560",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </Button>
+                </Box>
               </Box>
             </Box>
-          </Box>
+          )}
 
           <Button
             onClick={handleSubmit}
-            disabled={locked || !password.trim()}
+            disabled={requirePassword ? locked || !password.trim() : false}
             style={{
               width: "100%",
               height: "48px",
@@ -302,10 +322,10 @@ const VideoSection = () => {
               fontWeight: "400",
               cursor: "pointer",
               fontFamily: "inherit",
-              marginBottom: "16px",
+              marginBottom: statusMsg ? "16px" : "0",
             }}
           >
-            Unlock
+            {actionLabel}
           </Button>
 
           {statusMsg && (
