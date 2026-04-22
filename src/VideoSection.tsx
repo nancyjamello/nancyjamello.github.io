@@ -43,6 +43,17 @@ interface VideoSectionProps {
   actionLabel?: string;
   prioritizedTitles?: string[];
   playlists?: PlaylistLink[];
+  excludedTitleKeywords?: string[];
+}
+
+function filterVideos(videos: YouTubeVideo[], excludedTitleKeywords: string[]): YouTubeVideo[] {
+  if (excludedTitleKeywords.length === 0) return videos;
+
+  const keywords = excludedTitleKeywords.map((keyword) => keyword.toLowerCase());
+  return videos.filter((video) => {
+    const title = video.title.toLowerCase();
+    return !keywords.some((keyword) => title.includes(keyword));
+  });
 }
 
 function sortVideos(videos: YouTubeVideo[], prioritizedTitles: string[]): YouTubeVideo[] {
@@ -93,6 +104,7 @@ const VideoSection = ({
   actionLabel = "Unlock",
   prioritizedTitles = [],
   playlists = [],
+  excludedTitleKeywords = [],
 }: VideoSectionProps) => {
   // gate state
   const [unlocked, setUnlocked] = useState(false);
@@ -129,7 +141,8 @@ const VideoSection = ({
           const xml = await res.text();
           const parsed = parseRss(xml);
           if (parsed.length > 0) {
-            setVideos(sortVideos(parsed, prioritizedTitles));
+            const filtered = filterVideos(parsed, excludedTitleKeywords);
+            setVideos(sortVideos(filtered, prioritizedTitles));
             break;
           }
         }

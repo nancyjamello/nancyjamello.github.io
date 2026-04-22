@@ -303,6 +303,7 @@ const App = () => {
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl&si=z4zZjbmHPGtOBBP3",
               },
             ]}
+            excludedTitleKeywords={["ruth barati"]}
           />
           <Box h={{ base: "40px", md: "56px" }} />
           <VideoSection
