@@ -298,6 +298,10 @@ const App = () => {
             title="Ruth Barati’s Video Library"
             requirePassword={false}
             actionLabel="Open"
+            prioritizedTitles={[
+              "Yoga with Ruth Barati",
+              "Meditation with Ruth Barati",
+            ]}
           />
         </Box>
       </Box>

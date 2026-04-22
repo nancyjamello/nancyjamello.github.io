@@ -36,6 +36,27 @@ interface VideoSectionProps {
   title?: string;
   requirePassword?: boolean;
   actionLabel?: string;
+  prioritizedTitles?: string[];
+}
+
+function sortVideos(videos: YouTubeVideo[], prioritizedTitles: string[]): YouTubeVideo[] {
+  if (prioritizedTitles.length === 0) return videos;
+
+  const priorityMap = new Map(
+    prioritizedTitles.map((title, index) => [title.toLowerCase(), index])
+  );
+
+  return [...videos].sort((a, b) => {
+    const aPriority = priorityMap.get(a.title.toLowerCase());
+    const bPriority = priorityMap.get(b.title.toLowerCase());
+
+    if (aPriority !== undefined && bPriority !== undefined) {
+      return aPriority - bPriority;
+    }
+    if (aPriority !== undefined) return -1;
+    if (bPriority !== undefined) return 1;
+    return 0;
+  });
 }
 
 function parseRss(xml: string): YouTubeVideo[] {
@@ -64,6 +85,7 @@ const VideoSection = ({
   title = "Nancy’s Video Library",
   requirePassword = true,
   actionLabel = "Unlock",
+  prioritizedTitles = [],
 }: VideoSectionProps) => {
   // gate state
   const [unlocked, setUnlocked] = useState(false);
@@ -100,7 +122,7 @@ const VideoSection = ({
           const xml = await res.text();
           const parsed = parseRss(xml);
           if (parsed.length > 0) {
-            setVideos(parsed);
+            setVideos(sortVideos(parsed, prioritizedTitles));
             break;
           }
         }
