@@ -262,9 +262,9 @@ const App = () => {
             lineHeight="2"
             mb="16px"
           >
-            Nancy Portugal Jamello has studied Yoga since 1968. She taught in
-            the Silicon Valley from 1984 through 2020. Nancy has studied with a
-            variety of instructors and enjoys combining styles.
+            Nancy Portugal Jamello began studying Yoga in 1968 and has taught
+            in Yoga the Silicon Valley from 1984 through 2020. Nancy studied
+            with a variety of instructors and enjoys combining styles.
           </Text>
           <Text
             fontSize={{ base: "md", md: "lg" }}
