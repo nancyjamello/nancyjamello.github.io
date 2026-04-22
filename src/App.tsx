@@ -345,7 +345,7 @@ const App = () => {
             color="white"
             mb="16px"
           >
-            Yoga DVDs
+            Published Works
           </Heading>
           <Text
             fontSize="md"
