@@ -396,6 +396,8 @@ const VideoSection = ({
                   key={playlist.url}
                   href={playlist.url}
                   isExternal
+                  target="_blank"
+                  rel="noopener noreferrer"
                   textDecoration="none"
                   _hover={{ textDecoration: "none" }}
                   display="block"
