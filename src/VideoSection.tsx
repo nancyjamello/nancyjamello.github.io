@@ -278,7 +278,7 @@ const VideoSection = ({
           textAlign="center"
         >
           {unlocked
-            ? "Click any playlist below to view the associated videos on YouTube"
+            ? "Click any playlist below to view the associated videos on YouTube."
             : requirePassword
               ? "Enter your password to access the video collection."
               : "Click Open to access the video collection."}
