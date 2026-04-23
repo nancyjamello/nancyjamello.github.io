@@ -6,6 +6,7 @@ const BLUE = "#94a7ab";
 const WINE = "rgb(192, 85, 118)";
 const BLUE_DARK = "#7a9195";
 const ABOUT_BG = WINE;
+const SECTION_ROSE = "#b57b8c";
 
 const DVDS = [
   {
@@ -309,7 +310,7 @@ const App = () => {
         pt={{ base: "40px", md: "56px" }}
         pb={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
-        bg={BLUE}
+        bg={SECTION_ROSE}
       >
         <Box maxW="800px" mx="auto" textAlign="center">
           <Heading
@@ -418,7 +419,7 @@ const App = () => {
         id="contact"
         py={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
-        bg={BLUE}
+        bg={SECTION_ROSE}
       >
         <Box maxW="800px" mx="auto" textAlign="center">
           <Heading
