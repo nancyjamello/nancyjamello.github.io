@@ -287,7 +287,7 @@ const App = () => {
             fitness, swimming and dance.
           </Text>
 
-          <Box mt={{ base: "40px", md: "56px" }} px={{ base: "20px", md: "80px" }} mb={{ base: "16px", md: "24px" }}>
+          <Box mt={{ base: "40px", md: "56px" }} px={{ base: "20px", md: "80px" }}>
             <Box h="1px" bg="rgba(255,255,255,0.35)" />
             <Flex justify="center" mt="-10px">
               <Box
@@ -305,7 +305,8 @@ const App = () => {
       {/* ─── DVDs: steel blue background ─── */}
       <Box
         id="dvds"
-        py={{ base: "60px", md: "100px" }}
+        pt={{ base: "40px", md: "56px" }}
+        pb={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
         bg={BLUE}
       >
