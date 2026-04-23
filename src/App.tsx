@@ -42,8 +42,8 @@ const DVDS = [
 
 const NAV_ITEMS = [
   { label: "About Nancy", href: "#about" },
-  { label: "Video Library", href: "#videos" },
   { label: "Published Works", href: "#dvds" },
+  { label: "Video Library", href: "#videos" },
   { label: "Contact Nancy", href: "#contact" },
 ];
 
@@ -289,6 +289,64 @@ const App = () => {
         </Box>
       </Box>
 
+      {/* ─── DVDs: steel blue background ─── */}
+      <Box
+        id="dvds"
+        py={{ base: "60px", md: "100px" }}
+        px={{ base: "20px", md: "40px" }}
+        bg={BLUE}
+      >
+        <Box maxW="800px" mx="auto" textAlign="center">
+          <Heading
+            as="h2"
+            fontSize={{ base: "xl", md: "2xl" }}
+            fontWeight="600"
+            color="white"
+            mb="16px"
+          >
+            Published Works
+          </Heading>
+          <Text
+            fontSize="md"
+            fontWeight="300"
+            color="rgba(255,255,255,0.85)"
+            mb="40px"
+            lineHeight="1.8"
+          >
+            Yoga DVDs and Meditation CDs can be found on YouTube from the below Video Libraries.
+          </Text>
+
+          <Flex direction="column" gap="20px" textAlign="left">
+            {DVDS.map((dvd, i) => (
+              <Box
+                key={i}
+                p={{ base: "20px", md: "24px" }}
+                bg="rgba(255,255,255,0.12)"
+                borderLeft="4px solid rgba(255,255,255,0.4)"
+                borderRadius="md"
+              >
+                <Text fontSize="md" fontWeight="500" color="white" mb="2px">
+                  {dvd.title}
+                  {dvd.year && (
+                    <Text as="span" fontSize="sm" fontWeight="300" color="rgba(255,255,255,0.6)" ml="8px">
+                      ({dvd.year})
+                    </Text>
+                  )}
+                </Text>
+                {"subtitle" in dvd && dvd.subtitle && (
+                  <Text fontSize="sm" fontWeight="400" color="rgba(255,255,255,0.7)" mb="4px">
+                    {dvd.subtitle}
+                  </Text>
+                )}
+                <Text fontSize="sm" fontWeight="300" fontStyle="italic" color="rgba(255,255,255,0.7)">
+                  {dvd.description}
+                </Text>
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+      </Box>
+
       {/* ─── Video libraries ─── */}
       <Box
         id="videos"
@@ -337,64 +395,6 @@ const App = () => {
               },
             ]}
           />
-        </Box>
-      </Box>
-
-      {/* ─── DVDs: steel blue background ─── */}
-      <Box
-        id="dvds"
-        py={{ base: "60px", md: "100px" }}
-        px={{ base: "20px", md: "40px" }}
-        bg={BLUE}
-      >
-        <Box maxW="800px" mx="auto" textAlign="center">
-          <Heading
-            as="h2"
-            fontSize={{ base: "xl", md: "2xl" }}
-            fontWeight="600"
-            color="white"
-            mb="16px"
-          >
-            Published Works
-          </Heading>
-          <Text
-            fontSize="md"
-            fontWeight="300"
-            color="rgba(255,255,255,0.85)"
-            mb="40px"
-            lineHeight="1.8"
-          >
-            Yoga DVDs and Meditation CDs can be found on YouTube from the above Video Libraries.
-          </Text>
-
-          <Flex direction="column" gap="20px" textAlign="left">
-            {DVDS.map((dvd, i) => (
-              <Box
-                key={i}
-                p={{ base: "20px", md: "24px" }}
-                bg="rgba(255,255,255,0.12)"
-                borderLeft="4px solid rgba(255,255,255,0.4)"
-                borderRadius="md"
-              >
-                <Text fontSize="md" fontWeight="500" color="white" mb="2px">
-                  {dvd.title}
-                  {dvd.year && (
-                    <Text as="span" fontSize="sm" fontWeight="300" color="rgba(255,255,255,0.6)" ml="8px">
-                      ({dvd.year})
-                    </Text>
-                  )}
-                </Text>
-                {"subtitle" in dvd && dvd.subtitle && (
-                  <Text fontSize="sm" fontWeight="400" color="rgba(255,255,255,0.7)" mb="4px">
-                    {dvd.subtitle}
-                  </Text>
-                )}
-                <Text fontSize="sm" fontWeight="300" fontStyle="italic" color="rgba(255,255,255,0.7)">
-                  {dvd.description}
-                </Text>
-              </Box>
-            ))}
-          </Flex>
         </Box>
       </Box>
 
