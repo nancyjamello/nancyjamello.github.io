@@ -545,7 +545,16 @@ const VideoSection = ({
             )
           )}
 
-          <Box maxW="460px" mx="auto" mt="24px">
+          <Box
+            maxW="460px"
+            mx="auto"
+            mt="24px"
+            px={{ base: "20px", md: "28px" }}
+            py={{ base: "20px", md: "24px" }}
+            bg="rgba(255,255,255,0.58)"
+            borderRadius="lg"
+            backdropFilter="blur(6px)"
+          >
             <Button
               onClick={handleClose}
               style={{
