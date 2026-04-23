@@ -284,9 +284,9 @@ const App = () => {
             color="rgba(255,255,255,0.9)"
             lineHeight="2"
           >
-            Her background includes nursing and owning a natural foods business.
-            In addition to Yoga, Nancy has taught cardiac rehabilitation, senior
-            fitness, swimming and dance.
+            Nancy has extensive experience in nursing and owns a natural foods
+            business. In addition to Yoga, she previously taught cardiac
+            rehabilitation, senior fitness, swimming, and dance.
           </Text>
 
           <Box mt={{ base: "40px", md: "56px" }} px={{ base: "20px", md: "80px" }}>
@@ -439,7 +439,7 @@ const App = () => {
             mb="24px"
           >
             <em>
-              Contact me <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link> for more information.
+              If you have any yoga-related questions or would like to reach out to Nancy, please send a message <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link>.
             </em>
           </Text>
         </Box>
