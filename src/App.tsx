@@ -417,6 +417,9 @@ const App = () => {
               {
                 title: "Breathing Exercises and Meditation With Nancy",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl&si=z4zZjbmHPGtOBBP3",
+                details: [
+                  "15+ Quick Exercises with Nancy (2020-)"
+                ],
               },
             ]}
             excludedTitleKeywords={["ruth barati"]}
