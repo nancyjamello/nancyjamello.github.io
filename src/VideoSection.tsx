@@ -449,12 +449,19 @@ const VideoSection = ({
                       justifyContent="center"
                       textAlign="center"
                       px="20px"
-                    >
-                      <Text fontSize="lg" fontWeight="500" lineHeight="1.4" whiteSpace="normal">
+                    />
+                    <Box p="12px" flex="1" display="flex" flexDirection="column" justifyContent="space-between">
+                      <Text
+                        fontWeight="500"
+                        color="#2d2d2d"
+                        fontSize="sm"
+                        whiteSpace="normal"
+                        textDecoration="underline"
+                        textUnderlineOffset="4px"
+                        mb="8px"
+                      >
                         {playlist.title}
                       </Text>
-                    </Box>
-                    <Box p="12px" flex="1" display="flex" flexDirection="column" justifyContent="space-between">
                       {playlist.details && playlist.details.length > 0 ? (
                         <Box as="ul" pl="18px" m="0" color="#2d2d2d">
                           {playlist.details.map((detail) => (
@@ -463,11 +470,7 @@ const VideoSection = ({
                             </Text>
                           ))}
                         </Box>
-                      ) : (
-                        <Text fontWeight="500" color="#2d2d2d" fontSize="sm" whiteSpace="normal">
-                          {playlist.title}
-                        </Text>
-                      )}
+                      ) : null}
                       <Text color="#aaa" fontSize="xs" mt="4px">
                         Open YouTube playlist
                       </Text>
