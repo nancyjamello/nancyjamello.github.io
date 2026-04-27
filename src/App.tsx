@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, Heading, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Link, Button } from "@chakra-ui/react";
 import VideoSection from "./VideoSection";
 
 const BLUE = "#94a7ab";
@@ -52,6 +52,7 @@ const NAV_ITEMS = [
   { label: "Published Works", href: "#dvds" },
   { label: "Video Library", href: "#videos" },
   { label: "Contact Nancy", href: "#contact" },
+  { label: "Donate", href: "#donate" },
 ];
 
 const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
@@ -419,35 +420,75 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* ─── Contact with matching pink background ─── */}
+      {/* ─── Contact + Donate ─── */}
       <Box
-        id="contact"
         py={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
         bg={ABOUT_BG}
       >
-        <Box maxW="800px" mx="auto" textAlign="center">
-          <Heading
-            as="h2"
-            fontSize={{ base: "xl", md: "2xl" }}
-            fontWeight="600"
-            color="white"
-            mb="16px"
-          >
-            Contact
-          </Heading>
-          <Text
-            fontSize="md"
-            fontWeight="300"
-            color="rgba(255,255,255,0.85)"
-            lineHeight="1.8"
-            mb="24px"
-          >
-            <em>
-              If you have any yoga-related questions or would like to reach out to Nancy, please send a message <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link>.
-            </em>
-          </Text>
-        </Box>
+        <Flex
+          maxW="1000px"
+          mx="auto"
+          direction={{ base: "column", md: "row" }}
+          gap={{ base: "40px", md: "0" }}
+          align="stretch"
+        >
+          <Box id="contact" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+            <Heading
+              as="h2"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontWeight="600"
+              color="white"
+              mb="16px"
+            >
+              Contact
+            </Heading>
+            <Text
+              fontSize="md"
+              fontWeight="300"
+              color="rgba(255,255,255,0.85)"
+              lineHeight="1.8"
+              mb="24px"
+            >
+              <em>
+                If you have any yoga-related questions or would like to reach out to Nancy, please send a message <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link>.
+              </em>
+            </Text>
+          </Box>
+
+          <Box id="donate" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+            <Heading
+              as="h2"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontWeight="600"
+              color="white"
+              mb="16px"
+            >
+              Donate
+            </Heading>
+            <Text
+              fontSize="md"
+              fontWeight="300"
+              color="rgba(255,255,255,0.85)"
+              lineHeight="1.8"
+              mb="24px"
+            >
+              <em>
+                Support Nancy&apos;s work and video library.
+              </em>
+            </Text>
+            <Button
+              bg="white"
+              color={WINE}
+              borderRadius="full"
+              px="32px"
+              fontWeight="500"
+              _hover={{ bg: "rgba(255,255,255,0.9)" }}
+            >
+              Donate
+            </Button>
+          </Box>
+        </Flex>
       </Box>
 
       {/* ─── Footer ─── */}
