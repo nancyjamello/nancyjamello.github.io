@@ -15,6 +15,11 @@ const DVDS = [
     description: "Short exercises to relax and renew",
   },
   {
+    title: "Yoga with Nancy",
+    year: "2017",
+    description: "One 90 minute Yoga instruction session",
+  },
+  {
     title: "Yoga for the Blind and Visually Impaired with Nancy",
     year: "2009",
     description: "Adaptive yoga instruction",
