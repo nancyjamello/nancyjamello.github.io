@@ -338,10 +338,19 @@ const App = () => {
             fontSize={{ base: "md", md: "lg" }}
             fontWeight="300"
             color="rgba(255,255,255,0.85)"
-            mb="40px"
+            mb="12px"
             lineHeight="1.8"
           >
             Yoga DVDs and meditation CDs can be found on YouTube in the video libraries below.
+          </Text>
+          <Text
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight="300"
+            color="rgba(255,255,255,0.72)"
+            mb="40px"
+            lineHeight="1.7"
+          >
+            All videos are copyrighted by Nancy Portugal Jamello and may not be copied, reposted, or used without permission.
           </Text>
 
           <Flex direction="column" gap="20px" textAlign="left">
