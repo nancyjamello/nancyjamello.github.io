@@ -451,9 +451,37 @@ const App = () => {
               mb="24px"
             >
               <em>
-                If you have any yoga-related questions or would like to reach out to Nancy, please send a message <Link href={`${import.meta.env.BASE_URL}contact.html`} color="white" textDecoration="underline" _hover={{ color: "white", opacity: 0.85 }}>HERE</Link>.
+                If you have any yoga-related questions or would like to reach out to Nancy, please use the contact form below.
               </em>
             </Text>
+            <Button
+              as="a"
+              href={`${import.meta.env.BASE_URL}contact.html`}
+              bg="white"
+              color={WINE}
+              borderRadius="full"
+              px="32px"
+              fontWeight="500"
+              _hover={{ bg: "rgba(255,255,255,0.9)", textDecoration: "none" }}
+            >
+              Contact
+            </Button>
+          </Box>
+
+          <Box display={{ base: "none", md: "flex" }} alignItems="center" justifyContent="center" px="8px">
+            <Box h="140px" w="1px" bg="rgba(255,255,255,0.35)" position="relative">
+              <Box
+                position="absolute"
+                left="50%"
+                bottom="-10px"
+                transform="translateX(-50%)"
+                w="20px"
+                h="20px"
+                borderRadius="full"
+                bg="rgba(255,255,255,0.22)"
+                border="1px solid rgba(255,255,255,0.45)"
+              />
+            </Box>
           </Box>
 
           <Box id="donate" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
