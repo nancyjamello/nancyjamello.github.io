@@ -243,7 +243,7 @@ const App = () => {
             color="white"
             mb="16px"
           >
-            Contemporary blend of traditional and nontraditional hatha yoga
+            Contemporary Blend of Traditional and Nontraditional Hatha Yoga
           </Heading>
           <Text
             fontSize="17px"
