@@ -456,7 +456,7 @@ const App = () => {
               {
                 title: "Ruth Barati's Relax and Renew Meditation - Audio",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvagluk8aaRlut0rZqxE2Iab_&si=0Zex-pRY9IJP0kjs",
-                backgroundImage: `${import.meta.env.BASE_URL}images/relax-renew-widget-background-2.png`,
+                backgroundImage: `${import.meta.env.BASE_URL}images/relax-renew-widget-background-3.png`,
                 backgroundPosition: "center center",
                 backgroundSize: "contain",
                 backgroundMinH: "220px",
