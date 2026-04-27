@@ -432,11 +432,16 @@ const VideoSection = ({
                     flexDirection="column"
                   >
                     <Box
-                      bg="linear-gradient(135deg, #94a7ab 0%, rgb(192, 85, 118) 100%)"
-                      backgroundImage={playlist.backgroundImage ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${playlist.backgroundImage})` : undefined}
-                      backgroundSize={playlist.backgroundSize || "cover"}
-                      backgroundPosition={playlist.backgroundPosition || "center"}
-                      backgroundRepeat="no-repeat"
+                      background={playlist.backgroundImage
+                        ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${playlist.backgroundImage}), linear-gradient(135deg, #94a7ab 0%, rgb(192, 85, 118) 100%)`
+                        : "linear-gradient(135deg, #94a7ab 0%, rgb(192, 85, 118) 100%)"}
+                      backgroundSize={playlist.backgroundImage
+                        ? `${playlist.backgroundSize || "cover"}, ${playlist.backgroundSize || "cover"}, cover`
+                        : "cover"}
+                      backgroundPosition={playlist.backgroundImage
+                        ? `${playlist.backgroundPosition || "center"}, ${playlist.backgroundPosition || "center"}, center`
+                        : "center"}
+                      backgroundRepeat={playlist.backgroundImage ? "no-repeat, no-repeat, no-repeat" : "no-repeat"}
                       color="white"
                       minH={playlist.backgroundMinH || (playlist.backgroundImage ? "220px" : "180px")}
                       display="flex"
