@@ -84,7 +84,7 @@ const App = () => {
         >
           <Link
             href="#"
-            fontSize="xl"
+            fontSize="2xl"
             fontWeight="600"
             color={WINE}
             textDecoration="none"
@@ -96,22 +96,26 @@ const App = () => {
           {/* Desktop nav */}
           <nav>
             <Flex
-              gap="28px"
+              gap="16px"
               alignItems="center"
               display={{ base: "none", md: "flex" }}
             >
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  fontSize="17px"
-                  fontWeight="400"
-                  color={WINE}
-                  textDecoration="none"
-                  _hover={{ opacity: 0.7, textDecoration: "none" }}
-                >
-                  {item.label}
-                </Link>
+              {NAV_ITEMS.map((item, index) => (
+                <React.Fragment key={item.href}>
+                  <Link
+                    href={item.href}
+                    fontSize="17px"
+                    fontWeight="400"
+                    color={WINE}
+                    textDecoration="none"
+                    _hover={{ opacity: 0.7, textDecoration: "none" }}
+                  >
+                    {item.label}
+                  </Link>
+                  {index < NAV_ITEMS.length - 1 && (
+                    <Box h="18px" w="1px" bg="rgba(181,123,140,0.35)" />
+                  )}
+                </React.Fragment>
               ))}
             </Flex>
           </nav>
