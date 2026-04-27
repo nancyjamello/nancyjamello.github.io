@@ -38,6 +38,7 @@ interface PlaylistLink {
   details?: string[];
   backgroundImage?: string;
   backgroundPosition?: string;
+  backgroundSize?: string;
 }
 
 interface VideoSectionProps {
@@ -432,7 +433,7 @@ const VideoSection = ({
                     <Box
                       bg={playlist.backgroundImage ? undefined : "linear-gradient(135deg, #94a7ab 0%, rgb(192, 85, 118) 100%)"}
                       backgroundImage={playlist.backgroundImage ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${playlist.backgroundImage})` : undefined}
-                      backgroundSize="cover"
+                      backgroundSize={playlist.backgroundSize || "cover"}
                       backgroundPosition={playlist.backgroundPosition || "center"}
                       color="white"
                       minH={playlist.backgroundImage ? "220px" : "180px"}

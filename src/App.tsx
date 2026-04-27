@@ -408,7 +408,8 @@ const App = () => {
                 title: "Yoga With Nancy Jamello",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvajmsppAZqyWH_jAm2yM9pun&si=GKU9kzcp6YcYZ78g",
                 backgroundImage: `${import.meta.env.BASE_URL}images/work-it-out-session-eight-screenshot.png`,
-                backgroundPosition: "center 28%",
+                backgroundSize: "100% auto",
+                backgroundPosition: "center center",
                 details: [
                   "Yoga With Nancy 1 x 90min (2017)",
                   "Yoga for the Blind and Visually Impaired (2009)",
@@ -420,7 +421,7 @@ const App = () => {
                 title: "Breathing Exercises and Meditation With Nancy",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl&si=z4zZjbmHPGtOBBP3",
                 backgroundImage: `${import.meta.env.BASE_URL}images/breathing-exercises-widget-background.png`,
-                backgroundPosition: "center 28%",
+                backgroundPosition: "62% 20%",
                 details: [
                   "15+ Quick Exercises With Nancy (2020-)"
                 ],
