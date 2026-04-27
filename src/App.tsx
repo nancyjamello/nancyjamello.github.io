@@ -343,15 +343,7 @@ const App = () => {
           >
             Yoga DVDs and meditation CDs can be found on YouTube in the video libraries below.
           </Text>
-          <Text
-            fontSize={{ base: "sm", md: "md" }}
-            fontWeight="300"
-            color="rgba(255,255,255,0.72)"
-            mb="40px"
-            lineHeight="1.7"
-          >
-            All videos are copyrighted by Nancy Portugal Jamello and may not be copied, reposted, or used without permission.
-          </Text>
+
 
           <Flex direction="column" gap="20px" textAlign="left">
             {DVDS.map((dvd, i) => (
@@ -381,6 +373,17 @@ const App = () => {
               </Box>
             ))}
           </Flex>
+
+          <Text
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight="300"
+            color="rgba(255,255,255,0.72)"
+            mt="28px"
+            lineHeight="1.7"
+            textAlign="center"
+          >
+            All Published Works are copyrighted by Nancy Portugal Jamello and may not be copied, reposted, or used without permission.
+          </Text>
         </Box>
       </Box>
 
