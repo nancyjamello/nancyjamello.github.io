@@ -10,33 +10,33 @@ const SECTION_ROSE = "#8BB6C1";
 
 const DVDS = [
   {
-    title: "Breathing Exercises and Meditation with Nancy",
+    title: "Breathing Exercises and Meditation With Nancy",
     year: "2020-2026",
     description: "Short exercises to relax and renew",
   },
   {
-    title: "Yoga with Nancy",
+    title: "Yoga With Nancy",
     year: "2017",
     description: "One 90 minute yoga instruction session",
   },
   {
-    title: "Yoga for the Blind and Visually Impaired with Nancy",
+    title: "Yoga for the Blind and Visually Impaired With Nancy",
     year: "2009",
     description: "Adaptive yoga instruction",
   },
   {
-    title: "Yoga with Nancy",
+    title: "Yoga With Nancy",
     year: "2002",
     description: "Two 60 minute yoga instruction sessions",
   },
   {
-    title: "Work It Out - Yoga with Nancy",
+    title: "Work It Out - Yoga With Nancy",
     subtitle: "Legs and Sun / Neck and Back",
     year: "1991",
     description: "Eight 30 minute yoga instruction sessions (sessions 1–4 and 6–9)",
   },
   {
-    title: "Yoga with Ruth Barati",
+    title: "Yoga With Ruth Barati",
     year: "1996",
     description: "Eight 90 minute beginner and intermediate classes with Ruth",
   },
@@ -90,7 +90,7 @@ const App = () => {
             textDecoration="none"
             _hover={{ textDecoration: "none", opacity: 0.7 }}
           >
-            Yoga with Nancy
+            Yoga With Nancy
           </Link>
 
           {/* Desktop nav */}
@@ -408,9 +408,9 @@ const App = () => {
                 title: "Yoga With Nancy Jamello",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvajmsppAZqyWH_jAm2yM9pun&si=GKU9kzcp6YcYZ78g",
                 details: [
-                  "Yoga with Nancy 1 x 90min (2017)",
+                  "Yoga With Nancy 1 x 90min (2017)",
                   "Yoga for the Blind and Visually Impaired (2009)",
-                  "Yoga with Nancy 2 x 60min (2002)",
+                  "Yoga With Nancy 2 x 60min (2002)",
                   "Work it Out 8 x 30min (1991)",
                 ],
               },
@@ -418,7 +418,7 @@ const App = () => {
                 title: "Breathing Exercises and Meditation With Nancy",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvahA4QMBBKCd73cswnCFYsWl&si=z4zZjbmHPGtOBBP3",
                 details: [
-                  "15+ Quick Exercises with Nancy (2020-)"
+                  "15+ Quick Exercises With Nancy (2020-)"
                 ],
               },
             ]}
@@ -430,8 +430,8 @@ const App = () => {
             requirePassword={false}
             actionLabel="Open"
             prioritizedTitles={[
-              "Yoga with Ruth Barati",
-              "Meditation with Ruth Barati",
+              "Yoga With Ruth Barati",
+              "Meditation With Ruth Barati",
             ]}
             playlists={[
               {
