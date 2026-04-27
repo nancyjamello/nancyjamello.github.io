@@ -457,7 +457,7 @@ const App = () => {
               mb="24px"
             >
               <em>
-                If you have any yoga-related questions or would like to reach out to Nancy, please use the contact form below.
+                If you have yoga-related questions or want to reach out to Nancy, please use the contact form below.
               </em>
             </Text>
             <Button
