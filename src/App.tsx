@@ -251,16 +251,11 @@ const App = () => {
             letterSpacing="0.2em"
             color="rgba(255,255,255,0.8)"
             textTransform="uppercase"
-            mb="12px"
+            textDecoration="underline"
+            textUnderlineOffset="6px"
           >
             Saratoga &amp; San Jose, California
           </Text>
-          <Box
-            w="140px"
-            h="1px"
-            bg="rgba(255,255,255,0.7)"
-            mx="auto"
-          />
         </Box>
       </Box>
 
@@ -537,7 +532,7 @@ const App = () => {
         bg="white"
         textAlign="center"
       >
-        <Text fontSize="xs" fontWeight="300" color={WINE}>
+        <Text fontSize="15px" fontWeight="300" color={WINE}>
           &copy; {new Date().getFullYear()} Nancy Portugal Jamello
         </Text>
       </Box>
