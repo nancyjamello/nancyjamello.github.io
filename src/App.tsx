@@ -473,8 +473,8 @@ const App = () => {
               <Box
                 position="absolute"
                 left="50%"
-                bottom="-10px"
-                transform="translateX(-50%)"
+                top="50%"
+                transform="translate(-50%, -50%)"
                 w="20px"
                 h="20px"
                 borderRadius="full"
