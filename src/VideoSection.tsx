@@ -472,7 +472,7 @@ const VideoSection = ({
                         </Box>
                       ) : null}
                       <Text color="#2d2d2d" fontSize="xs" mt="auto" pt="8px">
-                        Click here to open the YouTube playlist.
+                        Click here to open YouTube playlist
                       </Text>
                     </Box>
                   </Box>

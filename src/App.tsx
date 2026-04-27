@@ -43,7 +43,7 @@ const DVDS = [
   {
     title: "Ruth\u2019s Relax and Renew Meditations",
     year: "",
-    description: "Guided meditation audio CD.",
+    description: "Guided meditation audio CD",
   },
 ];
 
@@ -500,7 +500,7 @@ const App = () => {
               mb="24px"
             >
               <em>
-                If you have yoga-related questions or would like to reach out to Nancy, please use the contact form below.
+                If you have yoga-related questions or want to reach out to Nancy, please use the contact form below.
               </em>
             </Text>
             <Button
@@ -597,5 +597,3 @@ const App = () => {
 };
 
 export default App;
- App;
-pp;
