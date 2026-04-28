@@ -51,8 +51,8 @@ const NAV_ITEMS = [
   { label: "About Nancy", href: "#about" },
   { label: "Published Works", href: "#dvds" },
   { label: "Video Library", href: "#videos" },
-  { label: "Contact Nancy", href: "#contact" },
-  { label: "Donate", href: "#donate" },
+  { label: "Contact Here", href: "#contact" },
+  { label: "Donate Here", href: "#donate" },
 ];
 
 const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
@@ -104,7 +104,7 @@ const App = () => {
                 <React.Fragment key={item.href}>
                   <Link
                     href={item.href}
-                    fontSize="17px"
+                    fontSize="16px"
                     fontWeight="400"
                     color={WINE}
                     textDecoration="none"
@@ -246,7 +246,7 @@ const App = () => {
             Contemporary Blend of Traditional and Nontraditional Hatha Yoga
           </Heading>
           <Text
-            fontSize={{ base: "14px", md: "17px" }}
+            fontSize={{ base: "13px", md: "16px" }}
             fontWeight="500"
             letterSpacing="0.2em"
             color="rgba(255,255,255,0.8)"
@@ -513,7 +513,7 @@ const App = () => {
               fontWeight="500"
               _hover={{ bg: "rgba(255,255,255,0.9)", textDecoration: "none" }}
             >
-              Contact
+              Contact Here
             </Button>
           </Box>
 
@@ -579,7 +579,7 @@ const App = () => {
               fontWeight="500"
               _hover={{ bg: "rgba(255,255,255,0.9)" }}
             >
-              Donate
+              Donate Here
             </Button>
           </Box>
         </Flex>
