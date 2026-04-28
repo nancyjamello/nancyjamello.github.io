@@ -246,7 +246,7 @@ const App = () => {
             Contemporary Blend of Traditional and Nontraditional Hatha Yoga
           </Heading>
           <Text
-            fontSize="17px"
+            fontSize={{ base: "14px", md: "17px" }}
             fontWeight="500"
             letterSpacing="0.2em"
             color="rgba(255,255,255,0.8)"
