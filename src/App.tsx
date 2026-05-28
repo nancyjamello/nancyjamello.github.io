@@ -421,7 +421,7 @@ const App = () => {
             actionLabel="Open"
             playlists={[
               {
-                title: "Yoga With Nancy Jamello",
+                title: "Yoga With Nancy Portugal Jamello",
                 url: "https://youtube.com/playlist?list=PLdY4OxKzOvajmsppAZqyWH_jAm2yM9pun&si=GKU9kzcp6YcYZ78g",
                 backgroundImage: `${import.meta.env.BASE_URL}images/yoga-with-nancy-widget-background.png`,
                 backgroundPosition: "center center",
