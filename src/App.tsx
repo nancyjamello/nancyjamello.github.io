@@ -51,8 +51,9 @@ const NAV_ITEMS = [
   { label: "About Nancy", href: "#about" },
   { label: "Published Works", href: "#dvds" },
   { label: "Free Video Library", href: "#videos" },
-  { label: "Contact Here", href: "#contact" },
-  { label: "Donate Here", href: "#donate" },
+  { label: "Contact", href: "#contact" },
+  { label: "Mailing List", href: "#mailing-list" },
+  { label: "Donate", href: "#donate" },
 ];
 
 const IMG = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
@@ -485,14 +486,14 @@ const App = () => {
         </Box>
       </Box>
 
-      {/* ─── Contact + Donate ─── */}
+      {/* ─── Contact + Mailing List + Donate ─── */}
       <Box
         py={{ base: "60px", md: "100px" }}
         px={{ base: "20px", md: "40px" }}
         bg={ABOUT_BG}
       >
         <Flex
-          maxW="1000px"
+          maxW="1200px"
           mx="auto"
           direction={{ base: "column", md: "row" }}
           gap={{ base: "40px", md: "0" }}
@@ -530,6 +531,70 @@ const App = () => {
               _hover={{ bg: "rgba(255,255,255,0.9)", textDecoration: "none" }}
             >
               Contact Here
+            </Button>
+          </Box>
+
+          <Box display={{ base: "block", md: "none" }} mt="40px" mb="40px" px={{ base: "20px", md: "80px" }}>
+            <Box h="1px" bg="rgba(255,255,255,0.35)" />
+            <Flex justify="center" mt="-10px">
+              <Box
+                w="20px"
+                h="20px"
+                borderRadius="full"
+                bg="rgba(255,255,255,0.22)"
+                border="1px solid rgba(255,255,255,0.45)"
+              />
+            </Flex>
+          </Box>
+
+          <Box display={{ base: "none", md: "flex" }} alignItems="center" justifyContent="center" px="8px">
+            <Box h="140px" w="1px" bg="rgba(255,255,255,0.35)" position="relative">
+              <Box
+                position="absolute"
+                left="50%"
+                top="50%"
+                transform="translate(-50%, -50%)"
+                w="20px"
+                h="20px"
+                borderRadius="full"
+                bg="rgba(255,255,255,0.22)"
+                border="1px solid rgba(255,255,255,0.45)"
+              />
+            </Box>
+          </Box>
+
+          <Box id="mailing-list" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="600"
+              color="white"
+              mb="16px"
+            >
+              Mailing List
+            </Heading>
+            <Text
+              fontSize={{ base: "md", md: "lg" }}
+              fontWeight="300"
+              color="rgba(255,255,255,0.85)"
+              lineHeight="1.8"
+              mb="24px"
+            >
+              <em>
+                Join Nancy&apos;s mailing list to hear about new videos, updates, and offerings.
+              </em>
+            </Text>
+            <Button
+              as="a"
+              href={`${import.meta.env.BASE_URL}contact.html`}
+              bg="white"
+              color={WINE}
+              borderRadius="full"
+              px="32px"
+              fontWeight="500"
+              _hover={{ bg: "rgba(255,255,255,0.9)", textDecoration: "none" }}
+            >
+              Join Here
             </Button>
           </Box>
 
