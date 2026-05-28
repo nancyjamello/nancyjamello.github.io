@@ -105,7 +105,7 @@ function parseRss(xml: string): YouTubeVideo[] {
 }
 
 const VideoSection = ({
-  title = "Nancy’s Free Video Library",
+  title = "Nancy’s Video Library",
   requirePassword = true,
   actionLabel = "Unlock",
   prioritizedTitles = [],
