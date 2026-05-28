@@ -450,7 +450,7 @@ const App = () => {
           />
           <Box h={{ base: "40px", md: "56px" }} />
           <VideoSection
-            title="Ruth Barati’s Video Library"
+            title="Ruth Barati’s Free Video Library"
             requirePassword={false}
             actionLabel="Open"
             prioritizedTitles={[
