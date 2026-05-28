@@ -257,6 +257,22 @@ const App = () => {
             Saratoga &amp; San Jose, California
           </Text>
         </Box>
+        <Text
+          position="absolute"
+          right={{ base: "12px", md: "28px" }}
+          bottom={{ base: "12px", md: "24px" }}
+          zIndex="1"
+          fontSize={{ base: "11px", md: "14px" }}
+          fontStyle="italic"
+          color="rgba(255,255,255,0.92)"
+          bg="rgba(0,0,0,0.28)"
+          px={{ base: "8px", md: "12px" }}
+          py={{ base: "4px", md: "6px" }}
+          borderRadius="md"
+          textAlign="right"
+        >
+          Fall 2017 - Saratoga, CA Recreation Department
+        </Text>
       </Box>
 
       {/* ─── About: steel blue with tagline + bio ─── */}
