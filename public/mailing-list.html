@@ -152,15 +152,9 @@
             </div>
           </div>
 
-          <div class="row">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div>
-              <label for="phone">Phone (optional)</label>
-              <input id="phone" name="phone" type="text" />
-            </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
           </div>
 
           <div>
@@ -193,7 +187,6 @@
         const firstName = document.getElementById('firstName').value.trim();
         const lastName = document.getElementById('lastName').value.trim();
         const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
         const city = document.getElementById('city').value.trim();
         const notes = document.getElementById('notes').value.trim();
 
@@ -202,7 +195,6 @@
           '',
           `Name: ${firstName} ${lastName}`,
           `Email: ${email}`,
-          `Phone: ${phone || 'Not provided'}`,
           `City/Area: ${city || 'Not provided'}`,
           `Notes: ${notes || 'None'}`,
         ].join('\n');
