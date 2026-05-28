@@ -398,7 +398,7 @@ const App = () => {
             lineHeight="1.7"
             textAlign="center"
           >
-            All Published Works are copyrighted by Nancy Portugal Jamello and may not be copied, reposted, or used without permission.
+            All published works are copyrighted by Nancy Portugal Jamello and may not be copied, reposted, or used without permission.
           </Text>
         </Box>
       </Box>
