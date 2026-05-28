@@ -50,7 +50,7 @@ const DVDS = [
 const NAV_ITEMS = [
   { label: "About Nancy", href: "#about" },
   { label: "Published Works", href: "#dvds" },
-  { label: "Video Library", href: "#videos" },
+  { label: "Free Video Library", href: "#videos" },
   { label: "Contact Here", href: "#contact" },
   { label: "Donate Here", href: "#donate" },
 ];
