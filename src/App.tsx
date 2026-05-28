@@ -499,7 +499,7 @@ const App = () => {
           gap={{ base: "40px", md: "0" }}
           align="stretch"
         >
-          <Box id="contact" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+          <Box id="contact" flex="1" textAlign="center" px={{ base: "0", md: "24px" }} display="flex" flexDirection="column">
             <Heading
               as="h2"
               fontSize={{ base: "2xl", md: "3xl" }}
@@ -517,12 +517,14 @@ const App = () => {
               mb="24px"
             >
               <em>
-                If you have yoga-related questions or would like to reach out to Nancy, please use the contact form below.
+                If you have yoga-related questions or would like to reach out to Nancy directly, please use the contact form below.
               </em>
             </Text>
             <Button
               as="a"
               href={`${import.meta.env.BASE_URL}contact.html`}
+              mt="auto"
+              alignSelf="center"
               bg="white"
               color={WINE}
               borderRadius="full"
@@ -563,7 +565,7 @@ const App = () => {
             </Box>
           </Box>
 
-          <Box id="mailing-list" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+          <Box id="mailing-list" flex="1" textAlign="center" px={{ base: "0", md: "24px" }} display="flex" flexDirection="column">
             <Heading
               as="h2"
               fontSize={{ base: "2xl", md: "3xl" }}
@@ -587,6 +589,8 @@ const App = () => {
             <Button
               as="a"
               href={`${import.meta.env.BASE_URL}mailing-list.html`}
+              mt="auto"
+              alignSelf="center"
               bg="white"
               color={WINE}
               borderRadius="full"
@@ -627,7 +631,7 @@ const App = () => {
             </Box>
           </Box>
 
-          <Box id="donate" flex="1" textAlign="center" px={{ base: "0", md: "24px" }}>
+          <Box id="donate" flex="1" textAlign="center" px={{ base: "0", md: "24px" }} display="flex" flexDirection="column">
             <Heading
               as="h2"
               fontSize={{ base: "2xl", md: "3xl" }}
@@ -653,6 +657,8 @@ const App = () => {
               href="https://www.paypal.com/donate/?hosted_button_id=VGGFCGRE4V8JS"
               target="_blank"
               rel="noopener noreferrer"
+              mt="auto"
+              alignSelf="center"
               bg="white"
               color={WINE}
               borderRadius="full"
