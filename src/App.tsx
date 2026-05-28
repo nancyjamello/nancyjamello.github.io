@@ -586,7 +586,7 @@ const App = () => {
             </Text>
             <Button
               as="a"
-              href={`${import.meta.env.BASE_URL}contact.html`}
+              href={`${import.meta.env.BASE_URL}mailing-list.html`}
               bg="white"
               color={WINE}
               borderRadius="full"
